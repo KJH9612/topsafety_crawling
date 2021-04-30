@@ -20,7 +20,6 @@ lists = dict()
 # 카테고리 정보 수집
 for cateName, info in MainCate.items():
     main_cate_no, link = info.values()
-
     SubCate = getCateName.getCategory(url+link, header, 'ul.menuCategory > li.xans-product-displaycategory > a', '([0-9]+\/")', 3)
     for subName, cate_link_info in SubCate.items():
         sub_cate_no, sub_cate_link = cate_link_info.values()
@@ -33,6 +32,7 @@ for cateName, info in MainCate.items():
 
         lists[main_cate_no+sub_cate_no] = getURLItems.getItems(url+sub_cate_link, header, 'p.prdCount>strong', '[0-9]+')
         # print(getData.strip())
+        # print(lists[main_cate_no+sub_cate_no])
 print(lists)
 # print(cnt)
 # print(MainCate)

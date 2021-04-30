@@ -28,6 +28,7 @@ def getItems(url, headers, html_dom, pattern):
 
     # print()
 
-    return re.findall('[0-9]+', str(lists))
+    return {'pn'+
+            str(idx): prod_no for idx, prod_no in enumerate(re.findall('[0-9]+', str(lists)))}
     # 페이지 아이템 추출
     #tmp = parser.select(html_DOM)
